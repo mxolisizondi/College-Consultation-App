@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Consultation App</string>
+    <string-array name="roles_array">
+        <item>Student</item>
+        <item>Lecturer</item>
+    </string-array>
+    <string-array name="departments_array">
+        <item>IT</item>
+        <item>HR</item>
+        <item>ENG</item>
+        <item>Marketing</item>
+    </string-array>
+</resources>
