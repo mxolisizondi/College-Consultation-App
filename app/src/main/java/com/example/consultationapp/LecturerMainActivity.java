@@ -9,13 +9,13 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class LecturerMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        TextView logout = findViewById(R.id.textView1);
+        setContentView(R.layout.activity_lecturer_main);
+        TextView logout = findViewById(R.id.textView2);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

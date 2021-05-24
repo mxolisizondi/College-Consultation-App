@@ -43,9 +43,7 @@ public class Register_User_Information extends AppCompatActivity {
         phone = findViewById(R.id.contactNumber);
         registerBtn = findViewById(R.id.submit);
 
-        checkField(firstname);
-        checkField(lastname);
-        checkField(phone);
+
 
         Spinner rolers_spinner = (Spinner) findViewById(R.id.roles_spinner);
         ArrayAdapter<CharSequence> rolesAdapter = ArrayAdapter.createFromResource(this,
@@ -63,20 +61,37 @@ public class Register_User_Information extends AppCompatActivity {
             FirebaseUser user = firebaseAuth.getCurrentUser();
             @Override
             public void onClick(View v) {
-                String getFirstname = firstname.getText().toString();
-                String getLastname = lastname.getText().toString();
-                String getPhone = phone.getText().toString();
-                DocumentReference df = fStore.collection("Users").document(user.getUid());
-                Map<String, Object> userInformation = new HashMap<>();
-                userInformation.put("Firstname", getFirstname);
-                userInformation.put("Lastname", getLastname);
-                userInformation.put("Phone", getPhone);
-                //Role
-                userInformation.put("Role", rolers_spinner.getSelectedItem().toString());
+                checkField(firstname);
+                checkField(lastname);
+                checkField(phone);
+                if(valid){
+                    String getFirstname = firstname.getText().toString();
+                    String getLastname = lastname.getText().toString();
+                    String getPhone = phone.getText().toString();
+                    DocumentReference df = fStore.collection("Users").document(user.getUid());
+                    Map<String, Object> userInformation = new HashMap<>();
+                    userInformation.put("Firstname", getFirstname);
+                    userInformation.put("Lastname", getLastname);
+                    userInformation.put("Phone", getPhone);
+                    //Role
+                    userInformation.put("Role", rolers_spinner.getSelectedItem().toString());
 
-                df.set(userInformation); // add onSuccess
-                Toast.makeText(Register_User_Information.this, "Successful Added",
-                        Toast.LENGTH_SHORT).show();
+                    df.set(userInformation); // add onSuccess
+                    Toast.makeText(Register_User_Information.this, "Successful Added",
+                            Toast.LENGTH_SHORT).show();
+                    if(rolers_spinner.getSelectedItem().toString().equals(Role.Lecturer)){
+                        startActivity(new Intent(getApplicationContext(),LecturerMainActivity.class));
+
+                    }
+                    else if(rolers_spinner.getSelectedItem().toString().equals(Role.Student)){
+                        startActivity(new Intent(getApplicationContext(),StudentMainActivity.class));
+                    }
+                }
+                else {
+                    Toast.makeText(Register_User_Information.this, "Please fill all required fields",
+                            Toast.LENGTH_SHORT).show();
+                }
+
 
             }
         });
