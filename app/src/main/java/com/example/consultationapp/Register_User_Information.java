@@ -73,6 +73,7 @@ public class Register_User_Information extends AppCompatActivity {
                     userInformation.put("Firstname", getFirstname);
                     userInformation.put("Lastname", getLastname);
                     userInformation.put("Phone", getPhone);
+                    userInformation.put("Course", department_spinner.getSelectedItem().toString());
                     //Role
                     userInformation.put("Role", rolers_spinner.getSelectedItem().toString());
 

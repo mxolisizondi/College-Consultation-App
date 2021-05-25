@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".UserProfile"
+    tools:showIn="@layout/fragment_user_profile">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <TextView
+                style="@style/headerText"
+                android:text="Account Info"
+                android:layout_marginBottom="20dp"/>
+
+            <RelativeLayout style="@style/profileDetailsLayout">
+                <ImageView
+                    android:id="@+id/nameImageView"
+                    android:src="@drawable/ic_name"
+                    style="@style/profileDetailsImage" />
+
+                <TextView
+                    android:text="Firstname"
+                    android:layout_toRightOf="@id/nameImageView"
+                style="@style/profileDetailsTextMain" />
+
+                <EditText
+                    android:id="@+id/p_firstname"
+                    android:text="developer"
+                    android:layout_toRightOf="@id/nameImageView"
+                    style="@style/profileDetailsMiniText" />
+
+                <ImageView
+                    android:id="@+id/editFirstname"
+                    android:src="@drawable/edit"
+                    style="@style/profileDetailsImageEdit"/>
+
+            </RelativeLayout>
+            <View style="@style/proifleDetailsView" />
+            <RelativeLayout style="@style/profileDetailsLayout">
+                <ImageView
+                    android:id="@+id/lastnameImageView"
+                    android:src="@drawable/ic_name"
+                    style="@style/profileDetailsImage" />
+
+                <TextView
+                    android:text="Lastname"
+                    android:layout_toRightOf="@id/lastnameImageView"
+                    style="@style/profileDetailsTextMain" />
+
+                <EditText
+                    android:id="@+id/p_lastname"
+                    android:text="developer"
+                    android:layout_toRightOf="@id/lastnameImageView"
+                    style="@style/profileDetailsMiniText" />
+
+                <ImageView
+                    android:id="@+id/editLastName"
+                    android:src="@drawable/edit"
+                    style="@style/profileDetailsImageEdit"/>
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+            <RelativeLayout style="@style/profileDetailsLayout">
+                <ImageView
+                    android:id="@+id/mobileImageView"
+                    android:src="@drawable/ic_mobile"
+                    style="@style/profileDetailsImage" />
+
+                <TextView
+                    android:text="Mobile"
+                    android:layout_toRightOf="@id/mobileImageView"
+                    style="@style/profileDetailsTextMain"/>
+
+                <EditText
+                    android:id="@+id/p_phone"
+                    android:text="+91-8129999999"
+                    android:layout_toRightOf="@id/mobileImageView"
+                    style="@style/profileDetailsMiniText" />
+
+                <ImageView
+                    android:id="@+id/editPhone"
+                    android:src="@drawable/edit"
+                    style="@style/profileDetailsImageEdit"/>
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+            <RelativeLayout style="@style/profileDetailsLayout">
+                <ImageView
+                    android:id="@+id/emailImageView"
+                    android:src="@drawable/ic_email"
+                    style="@style/profileDetailsImage" />
+
+                <TextView
+                    android:text="Email"
+                    android:layout_toRightOf="@id/emailImageView"
+                    style="@style/profileDetailsTextMain" />
+
+                <TextView
+                    android:id="@+id/p_email2"
+                    android:text="developer@appsnipp.com"
+                    android:layout_toRightOf="@id/emailImageView"
+                    style="@style/profileDetailsMiniText" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+            <RelativeLayout style="@style/profileDetailsLayout">
+                <ImageView
+                    android:id="@+id/addressImageView"
+                    android:src="@drawable/ic_address"
+                    style="@style/profileDetailsImage" />
+
+                <TextView
+                    android:text="Course"
+                    android:layout_toRightOf="@id/addressImageView"
+                    style="@style/profileDetailsTextMain" />
+
+                <TextView
+                    android:id="@+id/p_course"
+                    android:text="Information Technology"
+                    android:layout_toRightOf="@id/addressImageView"
+                    style="@style/profileDetailsMiniText" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+            <RelativeLayout style="@style/profileDetailsLayout">
+                <Button
+                    android:id="@+id/saveChanges"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Update profile"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

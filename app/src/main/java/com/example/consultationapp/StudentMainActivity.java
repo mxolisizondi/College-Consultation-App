@@ -32,7 +32,7 @@ public class StudentMainActivity extends AppCompatActivity {
 
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_home));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_explore));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_message));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_account));
 
         bottomNavigation.setOnShowListener(new MeowBottomNavigation.ShowListener() {
             @Override
@@ -47,7 +47,7 @@ public class StudentMainActivity extends AppCompatActivity {
                         fragment = new Messages();
                         break;
                     case 3:
-                        fragment = new Notification();
+                        fragment = new UserProfile();
                         break;
                 }
                 loadFragment(fragment);

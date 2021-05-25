@@ -20,4 +20,12 @@
     <color name="color_chat_bg">#21FF06</color>
     <color name="color_notification_bg">#80007F</color>
     <color name="color_profile_bg">#0D5FFF</color>
+
+    <!--colors for profile-->
+    <color name="profilePrimaryDark">#FF3B30</color>
+    <color name="profileAccentColor">#F7F7F7</color>
+    <color name="whiteTextColor">#fff</color>
+    <color name="profileBackground">#fff</color>
+    <color name="blackTextColor">#000</color>
+    <color name="profileEditTextColor">#707070</color>
 </resources>
