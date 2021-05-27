@@ -35,6 +35,7 @@
                 <EditText
                     android:id="@+id/p_firstname"
                     android:text="developer"
+                    android:enabled="false"
                     android:layout_toRightOf="@id/nameImageView"
                     style="@style/profileDetailsMiniText" />
 

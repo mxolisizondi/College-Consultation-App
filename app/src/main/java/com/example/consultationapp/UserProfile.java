@@ -55,6 +55,7 @@ public class UserProfile extends Fragment {
     FirebaseAuth firebaseAuth;
     Button saveChanges;
     CircleImageView profileImageView;
+    ImageView editFirstname;
 
     FirebaseFirestore fStore;
     DocumentReference df;
@@ -87,9 +88,11 @@ public class UserProfile extends Fragment {
         profileImageView = view.findViewById(R.id.profileImageView);
         course = view.findViewById(R.id.course);
         p_course = view.findViewById(R.id.p_course);
+        editFirstname = view.findViewById(R.id.editFirstname);
         firebaseAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
+
 
         uid = firebaseAuth.getCurrentUser().getUid();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -128,6 +131,15 @@ public class UserProfile extends Fragment {
             public void onClick(View v) {
                 Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(openGalleryIntent,1000);
+            }
+        });
+
+        editFirstname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firstname.setEnabled(true);
+                firstname.setFocusable(true);
+                System.out.println("Hey");
             }
         });
 
