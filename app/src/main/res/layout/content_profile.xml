@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".UserProfile"
+    tools:context=".controller.UserProfile"
     tools:showIn="@layout/fragment_user_profile">
 
         <LinearLayout
@@ -142,6 +142,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Update profile"/>
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+            <RelativeLayout style="@style/profileDetailsLayout">
+                <Button
+                    android:id="@+id/logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Logout"/>
 
             </RelativeLayout>
 
