@@ -25,4 +25,23 @@
         <item>Individual</item>
         <item>Group</item>
     </string-array>
+
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Welcome to Simply Schedule!</string>
+    <string name="slide_1_desc">The easiest way to communicate with lecturers if you have challenges simply schedule appointment!</string>
+
+    <string name="slide_2_title">Make your appointment</string>
+    <string name="slide_2_desc">This app connect student with a lecturer as simple as possible!</string>
+
+    <string name="slide_3_title">Watch Videos</string>
+    <string name="slide_3_desc">You can watch the recordings on this app if the lecturer uploaded a video!</string>
+
+    <string name="slide_4_title">Lets begin</string>
+    <string name="slide_4_desc">If you dont have account yet please create one you can also use your social media to login!</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
 </resources>

@@ -13,7 +13,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="273dp"
-            android:background="@drawable/blue_bg">
+            android:background="@drawable/profile_bk">
             <ImageView
                 android:layout_width="77dp"
                 android:layout_height="77dp"
@@ -51,7 +51,7 @@
                 android:layout_height="10.3dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="17dp"
-                android:src="@drawable/email" />
+                android:src="@drawable/email_orange" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
                 android:layout_height="10.3dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="17dp"
-                android:src="@drawable/password" />
+                android:src="@drawable/password_key" />
         </RelativeLayout>
         <TextView
             android:id="@+id/login"
@@ -94,7 +94,7 @@
             android:layout_marginLeft="62dp"
             android:layout_marginTop="18.7dp"
             android:layout_marginRight="62dp"
-            android:background="@drawable/blue_fill__rounded_color"
+            android:background="@drawable/circle_orange"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:paddingTop="14dp"

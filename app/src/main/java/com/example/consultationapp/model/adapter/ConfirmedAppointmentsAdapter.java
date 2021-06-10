@@ -22,6 +22,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ConfirmedAppointmentsAdapter extends FirestoreRecyclerAdapter<ApointementInformation, ConfirmedAppointmentsAdapter.ConfirmedAppointmentsHolder> {
     StorageReference pathReference ;
     public ConfirmedAppointmentsAdapter(@NonNull FirestoreRecyclerOptions<ApointementInformation> options) {
@@ -38,15 +40,12 @@ public class ConfirmedAppointmentsAdapter extends FirestoreRecyclerAdapter<Apoin
         String imageId = apointementInformation.getStudentId(); //add a title image
         System.out.println("Patient/Student is "+imageId);
 
-        pathReference = FirebaseStorage.getInstance().getReference().child("users/"+user.getUid()+"/profile.jpg"); //storage the image
+        pathReference = FirebaseStorage.getInstance().getReference().child("users/"+user.getEmail()+"/profile.jpg"); //storage the image
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Picasso.get()
                         .load(uri)
-                        .placeholder(R.mipmap.ic_launcher)
-                        .fit()
-                        .centerCrop()
                         .into(confirmedAppointmentsHolder.studentImage);//Image location
 
                 // profileImage.setImageURI(uri);
@@ -71,7 +70,7 @@ public class ConfirmedAppointmentsAdapter extends FirestoreRecyclerAdapter<Apoin
         TextView dateAppointement;
         TextView studentName;
         TextView appointementType;
-        ImageView studentImage;
+        CircleImageView studentImage;
         public ConfirmedAppointmentsHolder(@NonNull View itemView) {
             super(itemView);
             dateAppointement = itemView.findViewById(R.id.appointement_date);

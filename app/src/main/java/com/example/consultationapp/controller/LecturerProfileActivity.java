@@ -38,7 +38,7 @@ import javax.annotation.Nullable;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LecturerProfileActivity extends AppCompatActivity {
-    EditText firstname,lastname,phone;
+    EditText firstname,lastname,phone,module;
     TextView email,email2,role,fullnames,course,p_course;
     String uid;
     Button saveChanges, logout;
@@ -67,6 +67,7 @@ public class LecturerProfileActivity extends AppCompatActivity {
         profileImageView = findViewById(R.id.profileImageView);
         course = findViewById(R.id.course);
         p_course = findViewById(R.id.p_course);
+        module = findViewById(R.id.p_module);
         editFirstname = findViewById(R.id.editFirstname);
         fStore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -95,6 +96,7 @@ public class LecturerProfileActivity extends AppCompatActivity {
                     email2.setText(user.getEmail());
                     course.setText(documentSnapshot.getString("Course"));
                     p_course.setText(documentSnapshot.getString("Course"));
+                    module.setText(documentSnapshot.getString("Module"));
                     role.setText(documentSnapshot.getString("Role"));
                     fullnames.setText(documentSnapshot.getString("Firstname")+" "+documentSnapshot.getString("Lastname"));
                 }else {
@@ -136,6 +138,7 @@ public class LecturerProfileActivity extends AppCompatActivity {
                     edited.put("Firstname",firstname.getText().toString());
                     edited.put("Lastname",lastname.getText().toString());
                     edited.put("Phone",phone.getText().toString());
+                    edited.put("Module",module.getText().toString());
                     docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

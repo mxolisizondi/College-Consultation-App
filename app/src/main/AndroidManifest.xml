@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".controller.StudentAppointmentActivity"></activity>
+        <activity android:name=".controller.MainActivity"></activity>
+        <activity android:name=".controller.StudentAppointmentActivity" />
         <activity android:name=".controller.LecturerProfileActivity" />
         <activity android:name=".controller.StudentProfile" />
         <activity android:name=".controller.MyLecturersActivity" />
@@ -19,7 +20,7 @@
         <activity android:name=".controller.ChatActivity" />
         <activity android:name=".controller.LecturerAppointmentActivity" />
         <activity android:name=".controller.ConfirmedAppointmentActivity" />
-        <activity android:name=".controller.StudentSearchLecturer" />
+        <activity android:name=".controller.StudentSearchLecturerActivity" />
         <activity android:name=".MyCalendarLecturer" />
         <activity android:name=".controller.TestActivity" />
         <activity android:name=".VideoUpload" />
@@ -34,8 +35,8 @@
         <activity android:name=".controller.LecturerMainActivity" />
         <activity android:name=".controller.Register" />
         <activity android:name=".controller.Register_User_Information" />
-        <activity android:name=".controller.MainActivity" />
-        <activity android:name=".controller.Login">
+        <activity android:name=".controller.Login" />
+        <activity android:name=".controller.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,9 +44,9 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

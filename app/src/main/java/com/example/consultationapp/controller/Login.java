@@ -30,6 +30,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -73,24 +74,27 @@ public class Login extends AppCompatActivity {
     }
 
     private void checkUserRole(String uid) {
-        DocumentReference df = fStore.collection("Users").document(uid);
-        df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Log.d("TAG", "onSuccess"+ documentSnapshot.getData());
+        if(uid != null){
+            DocumentReference df = fStore.collection("Users").document(uid);
+            df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    Log.d("TAG", "onSuccess"+ documentSnapshot.getData());
 
-                if(documentSnapshot.getString("Role").equals(Role.Lecturer)){
-                    System.out.println("Hey Im a Lecturer");
-                    startActivity(new Intent(getApplicationContext(), LecturerMainActivity.class));//change back to Lecturer main activity
+                    if(documentSnapshot.getString("Role").equals(Role.Lecturer)){
+                        System.out.println("Hey Im a Lecturer");
+                        startActivity(new Intent(getApplicationContext(), LecturerMainActivity.class));//change back to Lecturer main activity
+
+                    }
+                    else if(documentSnapshot.getString("Role").equals(Role.Student)){
+                        System.out.println("Hey Im Student");
+                        startActivity(new Intent(getApplicationContext(), StudentMainActivity2.class));//change back to StudentMainActivity
+                    }
 
                 }
-                else if(documentSnapshot.getString("Role").equals(Role.Student)){
-                    System.out.println("Hey Im Student");
-                    startActivity(new Intent(getApplicationContext(), StudentMainActivity2.class));//change back to StudentMainActivity
-                }
+            });
+        }
 
-            }
-        });
     }
 
     public boolean checkField(EditText textField){

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/doctor_item_image"
             android:layout_width="50dp"
             android:layout_height="60dp"
@@ -38,7 +38,7 @@
             android:maxLines="1"
             android:text="Title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#22BE87" />
+            android:textColor="#B9B9B9" />
 
         <TextView
             android:id="@+id/text_view_description"

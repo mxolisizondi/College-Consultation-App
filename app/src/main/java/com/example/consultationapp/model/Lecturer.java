@@ -1,20 +1,20 @@
 package com.example.consultationapp.model;
 
 public class Lecturer {
-    String firstname,lastname,role,phoneNumber,email,course,url,uid;
+    String firstname,lastname,role,phoneNumber,email,course, module,uid;
 
     public Lecturer(){
         //needed for firebase
     }
 
-    public Lecturer(String firstname, String lastname, String role, String phoneNumber, String email, String course, String url, String uid) {
+    public Lecturer(String firstname, String lastname, String role, String phoneNumber, String email, String course, String module, String uid) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.role = role;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.course = course;
-        this.url = url;
+        this.module = module;
         this.uid = uid;
     }
 
@@ -67,12 +67,12 @@ public class Lecturer {
         this.course = course;
     }
 
-    public String getUrl() {
-        return url;
+    public String getModule() {
+        return module;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setModule(String module) {
+        this.module = module;
     }
 
     public String getUid() {

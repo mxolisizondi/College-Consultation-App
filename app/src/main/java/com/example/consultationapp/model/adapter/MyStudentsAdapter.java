@@ -26,6 +26,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MyStudentsAdapter extends FirestoreRecyclerAdapter<Student, MyStudentsAdapter.MyStudentsHolder> {
     StorageReference pathReference ;
 
@@ -70,8 +72,6 @@ public class MyStudentsAdapter extends FirestoreRecyclerAdapter<Student, MyStude
                 Picasso.get()
                         .load(uri)
                         .placeholder(R.mipmap.ic_launcher)
-                        .fit()
-                        .centerCrop()
                         .into(myStudentsHolder.imageViewPatient);//Image location
 
                 // profileImage.setImageURI(uri);
@@ -116,7 +116,7 @@ public class MyStudentsAdapter extends FirestoreRecyclerAdapter<Student, MyStude
         Button callBtn;
         TextView textViewTitle;
         TextView textViewTelephone;
-        ImageView imageViewPatient;
+        CircleImageView imageViewPatient;
         Button contactButton;
         RelativeLayout parentLayout;
         public MyStudentsHolder(@NonNull View itemView) {

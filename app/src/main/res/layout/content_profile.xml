@@ -137,6 +137,31 @@
 
             <View style="@style/proifleDetailsView" />
             <RelativeLayout style="@style/profileDetailsLayout">
+                <ImageView
+                    android:id="@+id/moduleImageView"
+                    android:src="@drawable/ic_address"
+                    style="@style/profileDetailsImage" />
+
+                <TextView
+                    android:text="Module"
+                    android:layout_toRightOf="@id/moduleImageView"
+                    style="@style/profileDetailsTextMain" />
+
+                <EditText
+                    android:id="@+id/p_module"
+                    android:text="DS401"
+                    android:layout_toRightOf="@id/moduleImageView"
+                    style="@style/profileDetailsMiniText" />
+
+                <ImageView
+                    android:id="@+id/editModule"
+                    android:src="@drawable/edit"
+                    style="@style/profileDetailsImageEdit"/>
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+            <RelativeLayout style="@style/profileDetailsLayout">
                 <Button
                     android:id="@+id/saveChanges"
                     android:layout_width="match_parent"

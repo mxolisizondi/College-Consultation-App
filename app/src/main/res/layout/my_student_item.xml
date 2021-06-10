@@ -12,7 +12,7 @@
         android:layout_height="80dp"
         android:id="@+id/parent_layout">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/patient_item_image"
             android:layout_width="65dp"
             android:layout_height="58dp"

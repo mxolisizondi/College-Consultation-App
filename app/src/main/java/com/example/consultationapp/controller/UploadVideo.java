@@ -39,7 +39,7 @@ public class UploadVideo extends AppCompatActivity {
     public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 123;
     VideoView videoView;
     TextView path;
-    Button button;
+    TextView button;
     ProgressBar progressBar;
     EditText editText;
     private Uri videoUri;

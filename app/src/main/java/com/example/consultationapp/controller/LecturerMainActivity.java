@@ -76,11 +76,12 @@ public class LecturerMainActivity extends AppCompatActivity {
             documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-
-                    if(documentSnapshot.exists()){
-                        fullnames.setText(documentSnapshot.getString("Firstname")+" "+documentSnapshot.getString("Lastname"));
-                    }else {
-                        Log.d("tag", "onEvent: Document do not exists");
+                    if(e == null){
+                        if(documentSnapshot.exists()){
+                            fullnames.setText(documentSnapshot.getString("Firstname")+" "+documentSnapshot.getString("Lastname"));
+                        }else {
+                            Log.d("tag", "onEvent: Document do not exists");
+                        }
                     }
                 }
             });

@@ -34,6 +34,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class LecturerAdapterFiltred extends RecyclerView.Adapter<LecturerAdapterFiltred.DoctoreHolder2> implements Filterable {
     public static boolean specialiteSearch = false;
     static String doc;
@@ -62,7 +64,7 @@ public class LecturerAdapterFiltred extends RecyclerView.Adapter<LecturerAdapter
     public void onBindViewHolder(@NonNull DoctoreHolder2 doctoreHolder, int i) {
         final Lecturer lecturer = mTubeListFiltered.get(i);
         final TextView t = doctoreHolder.title ;
-        doctoreHolder.title.setText(lecturer.getFirstname());
+        doctoreHolder.title.setText(lecturer.getFirstname() +" "+ lecturer.getLastname());
         /// ajouter l'image
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -73,8 +75,6 @@ public class LecturerAdapterFiltred extends RecyclerView.Adapter<LecturerAdapter
                 Picasso.get()
                         .load(uri)
                         .placeholder(R.mipmap.ic_launcher)
-                        .fit()
-                        .centerCrop()
                         .into(doctoreHolder.image);//Image location
 
                 // profileImage.setImageURI(uri);
@@ -85,7 +85,8 @@ public class LecturerAdapterFiltred extends RecyclerView.Adapter<LecturerAdapter
                 // Handle any errors
             }
         });
-        doctoreHolder.specialite.setText("Module : "+lecturer.getCourse());//Change to get Module
+        doctoreHolder.module.setText("Module : "+lecturer.getModule());//Change to get Module
+        doctoreHolder.email.setText(lecturer.getEmail());
         final String idPat = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
         final String idDoc = lecturer.getEmail();
         // doctoreHolder.image.setImageURI(Uri.parse("drawable-v24/ic_launcher_foreground.xml"));
@@ -137,12 +138,12 @@ public class LecturerAdapterFiltred extends RecyclerView.Adapter<LecturerAdapter
                     List<Lecturer> filteredList = new ArrayList<>();
                     for(Lecturer tube: mTubeList){
                         if(specialiteSearch == false) {
-                            if (tube.getFirstname().toLowerCase().contains(pattern) || tube.getFirstname().toLowerCase().contains(pattern)) {
+                            if (tube.getFirstname().toLowerCase().contains(pattern) || tube.getLastname().toLowerCase().contains(pattern) || tube.getModule().toLowerCase().contains(pattern) || tube.getEmail().toLowerCase().contains(pattern)) {
                                 filteredList.add(tube);
                             }
                         }
                         else{
-                            if (tube.getCourse().toLowerCase().contains(pattern) || tube.getCourse().toLowerCase().contains(pattern)) {//put getModule
+                            if (tube.getModule().toLowerCase().contains(pattern) || tube.getEmail().toLowerCase().contains(pattern)) {//put getModule
                                 filteredList.add(tube);
                             }
                         }
@@ -166,15 +167,16 @@ public class LecturerAdapterFiltred extends RecyclerView.Adapter<LecturerAdapter
 
         Button appointemenBtn;
         TextView title;
-        TextView specialite;
-        ImageView image;
+        TextView module,email;
+        CircleImageView image;
         Button addDoc;
         Button load;
         public DoctoreHolder2(@NonNull View itemView) {
             super(itemView);
             addDoc = itemView.findViewById(R.id.addDocBtn);
-            title= itemView.findViewById(R.id.doctor_view_title);
-            specialite=itemView.findViewById(R.id.text_view_description);
+            title = itemView.findViewById(R.id.doctor_view_title);
+            module = itemView.findViewById(R.id.text_view_description);
+            email = itemView.findViewById(R.id.text_view_email);
             image=itemView.findViewById(R.id.doctor_item_image);
             appointemenBtn=itemView.findViewById(R.id.appointemenBtn);
         }

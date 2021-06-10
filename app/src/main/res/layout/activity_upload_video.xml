@@ -42,14 +42,22 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         />
-
-    <Button
+    <TextView
+        android:id="@+id/button_upload_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_upload_main"
-        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="18.7dp"
+        android:layout_marginRight="62dp"
+        android:background="@drawable/circle_orange"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
         android:text="upload"
-        />
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
 
     <ProgressBar
         android:layout_width="match_parent"

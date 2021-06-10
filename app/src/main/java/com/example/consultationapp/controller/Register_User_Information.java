@@ -74,6 +74,7 @@ public class Register_User_Information extends AppCompatActivity {
                     userInformation.put("Lastname", getLastname);
                     userInformation.put("Phone", getPhone);
                     userInformation.put("Course", department_spinner.getSelectedItem().toString());
+                    userInformation.put("Module", "");
                     //Role
                     userInformation.put("Role", rolers_spinner.getSelectedItem().toString());
 
@@ -81,7 +82,7 @@ public class Register_User_Information extends AppCompatActivity {
                     Toast.makeText(Register_User_Information.this, "Successful Added",
                             Toast.LENGTH_SHORT).show();
                     if(rolers_spinner.getSelectedItem().toString().equals(Role.Lecturer)){
-                        LecturerHelper.addLecturer(getFirstname, getLastname,Role.Student,getPhone,user.getEmail().toString(),"","","");
+                        LecturerHelper.addLecturer(getFirstname, getLastname,Role.Student,getPhone,user.getEmail().toString(),department_spinner.getSelectedItem().toString(),"","");
                         startActivity(new Intent(getApplicationContext(), LecturerMainActivity.class));
 
                     }

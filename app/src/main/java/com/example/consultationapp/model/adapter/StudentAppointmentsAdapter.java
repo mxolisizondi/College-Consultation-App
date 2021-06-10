@@ -28,6 +28,8 @@ import com.example.consultationapp.model.ApointementInformation;
 import com.example.consultationapp.R;
 import com.squareup.picasso.Picasso;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class StudentAppointmentsAdapter extends FirestoreRecyclerAdapter<ApointementInformation, StudentAppointmentsAdapter.StudentAppointmentsHolder> {
     StorageReference pathReference;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -68,9 +70,6 @@ public class StudentAppointmentsAdapter extends FirestoreRecyclerAdapter<Apointe
             public void onSuccess(Uri uri) {
                 Picasso.get()
                         .load(uri)
-                        .placeholder(R.mipmap.ic_launcher)
-                        .fit()
-                        .centerCrop()
                         .into(patientAppointmentsHolder.image);
                 // profileImage.setImageURI(uri);
             }
@@ -108,7 +107,7 @@ public class StudentAppointmentsAdapter extends FirestoreRecyclerAdapter<Apointe
         TextView appointementType;
         TextView type;
         TextView phone;
-        ImageView image;
+        CircleImageView image;
 
         public StudentAppointmentsHolder(@NonNull View itemView) {
             super(itemView);

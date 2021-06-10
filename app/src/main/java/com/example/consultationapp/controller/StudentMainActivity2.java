@@ -66,16 +66,16 @@ public class StudentMainActivity2 extends AppCompatActivity {
                     System.out.println("hey");
                 }
             });
-
             DocumentReference documentReference = FirebaseFirestore.getInstance().collection("Users").document(user.getUid());
             documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-
-                    if(documentSnapshot.exists()){
-                        fullnames.setText(documentSnapshot.getString("Firstname")+" "+documentSnapshot.getString("Lastname"));
-                    }else {
-                        Log.d("tag", "onEvent: Document do not exists");
+                    if(e == null){
+                        if(documentSnapshot.exists()){
+                            fullnames.setText(documentSnapshot.getString("Firstname")+" "+documentSnapshot.getString("Lastname"));
+                        }else {
+                            Log.d("tag", "onEvent: Document do not exists");
+                        }
                     }
                 }
             });
@@ -98,7 +98,7 @@ public class StudentMainActivity2 extends AppCompatActivity {
         bookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), StudentSearchLecturer.class));
+                startActivity(new Intent(getApplicationContext(), StudentSearchLecturerActivity.class));
             }
         });
 

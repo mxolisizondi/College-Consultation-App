@@ -25,6 +25,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MyLecturersAdapter extends FirestoreRecyclerAdapter<Lecturer, MyLecturersAdapter.MyLecturerAppointementHolder> {
     StorageReference pathReference ;
 
@@ -38,8 +40,8 @@ public class MyLecturersAdapter extends FirestoreRecyclerAdapter<Lecturer, MyLec
 
     @Override
     protected void onBindViewHolder(@NonNull MyLecturerAppointementHolder myLecturersHolder, int position, @NonNull final Lecturer lecturer) {
-        myLecturersHolder.textViewTitle.setText(lecturer.getFirstname());
-        myLecturersHolder.textViewDescription.setText("Specialite : "+lecturer.getCourse());//Get Module
+        myLecturersHolder.textViewTitle.setText(lecturer.getFirstname() + " "+ lecturer.getLastname());
+        myLecturersHolder.textViewDescription.setText("Module : "+lecturer.getModule());//Get Module
         myLecturersHolder.sendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,9 +60,6 @@ public class MyLecturersAdapter extends FirestoreRecyclerAdapter<Lecturer, MyLec
             public void onSuccess(Uri uri) {
                 Picasso.get()
                         .load(uri)
-                        .placeholder(R.mipmap.ic_launcher)
-                        .fit()
-                        .centerCrop()
                         .into(myLecturersHolder.imageViewDoctor);//Image location
 
                 // profileImage.setImageURI(uri);
@@ -97,7 +96,7 @@ public class MyLecturersAdapter extends FirestoreRecyclerAdapter<Lecturer, MyLec
         TextView textViewTitle;
         TextView textViewDescription;
         TextView textViewStatus;
-        ImageView imageViewDoctor;
+        CircleImageView imageViewDoctor;
         Button sendMessageButton;
         Button callBtn;
         Button contactButton;
