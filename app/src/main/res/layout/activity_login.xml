@@ -19,7 +19,7 @@
                 android:layout_height="77dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="93dp"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo_ss" />
         </FrameLayout>
         <RelativeLayout
             android:layout_width="wrap_content"

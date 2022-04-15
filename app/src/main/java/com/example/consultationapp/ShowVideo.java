@@ -108,7 +108,7 @@ public class Showvideo extends AppCompatActivity {
                             public void onItemLongClick(View view, int position) {
 
                                 name = getItem(position).getName();
-                                showDeleteDialog(name);
+                                //showDeleteDialog(name);
                             }
                         });
                     }
@@ -197,7 +197,7 @@ public class Showvideo extends AppCompatActivity {
                             public void onItemLongClick(View view, int position) {
 
                                 name = getItem(position).getName();
-                                showDeleteDialog(name);
+                                //showDeleteDialog(name);
                             }
                         });
                     }
@@ -237,45 +237,45 @@ public class Showvideo extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    private void showDeleteDialog(final String name) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(Showvideo.this);
-        builder.setTitle("Delete");
-        builder.setMessage("Are you Sure to Delete this data");
-        builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                Query query = databaseReference.orderByChild("name").equalTo(name);
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                            dataSnapshot1.getRef().removeValue();
-                        }
-                        Toast.makeText(Showvideo.this, "Video Deleted", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        ///
-                    }
-                });
-
-            }
-        });
-
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                dialogInterface.dismiss();
-            }
-        });
-
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
+//    private void showDeleteDialog(final String name) {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(Showvideo.this);
+//        builder.setTitle("Delete");
+//        builder.setMessage("Are you Sure to Delete this data");
+//        builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                Query query = databaseReference.orderByChild("name").equalTo(name);
+//                query.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+//                            dataSnapshot1.getRef().removeValue();
+//                        }
+//                        Toast.makeText(Showvideo.this, "Video Deleted", Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError databaseError) {
+//                        ///
+//                    }
+//                });
+//
+//            }
+//        });
+//
+//        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                dialogInterface.dismiss();
+//            }
+//        });
+//
+//        AlertDialog alertDialog = builder.create();
+//        alertDialog.show();
+//    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

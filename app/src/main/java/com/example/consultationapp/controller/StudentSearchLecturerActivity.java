@@ -88,7 +88,7 @@ public class StudentSearchLecturerActivity extends AppCompatActivity {
 
         SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        searchView.setQueryHint(Html.fromHtml("<font color = #000000>" + "Search patient" + "</font>"));
+        searchView.setQueryHint(Html.fromHtml("<font color = #000000>" + "Search Lecturer" + "</font>"));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -113,31 +113,31 @@ public class StudentSearchLecturerActivity extends AppCompatActivity {
                 return true;
             case R.id.option_general:
                 LecturerAdapterFiltred.specialiteSearch = true;
-                adapter.getFilter().filter("Médecin général");
+                adapter.getFilter().filter("Advanced Diploma");
                 return true;
             case R.id.option_Dentiste:
                 LecturerAdapterFiltred.specialiteSearch = true;
-                adapter.getFilter().filter("Dentiste");
+                adapter.getFilter().filter("National Diploma");
                 return true;
             case R.id.option_Ophtalmologue:
                 LecturerAdapterFiltred.specialiteSearch = true;
-                adapter.getFilter().filter("Ophtalmologue");
+                adapter.getFilter().filter("IT");
                 return true;
             case R.id.option_ORL:
                 LecturerAdapterFiltred.specialiteSearch = true;
-                adapter.getFilter().filter("ORL");
+                adapter.getFilter().filter("Markerting");
                 return true;
             case R.id.option_Pédiatre:
                 LecturerAdapterFiltred.specialiteSearch = true;
-                adapter.getFilter().filter("Pédiatre");
+                adapter.getFilter().filter("HR");
                 return true;
             case R.id.option_Radiologue:
                 LecturerAdapterFiltred.specialiteSearch = true;
-                adapter.getFilter().filter("Radiologue");
+                adapter.getFilter().filter("Engineering");
                 return true;
             case R.id.option_Rhumatologue:
                 LecturerAdapterFiltred.specialiteSearch = true;
-                adapter.getFilter().filter("Rhumatologue");
+                adapter.getFilter().filter("Accounting");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

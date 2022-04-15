@@ -79,16 +79,16 @@ public class Register_User_Information extends AppCompatActivity {
                     userInformation.put("Role", rolers_spinner.getSelectedItem().toString());
 
                     df.set(userInformation); // add onSuccess
-                    Toast.makeText(Register_User_Information.this, "Successful Added",
+                    Toast.makeText(Register_User_Information.this, "Successful registered",
                             Toast.LENGTH_SHORT).show();
                     if(rolers_spinner.getSelectedItem().toString().equals(Role.Lecturer)){
-                        LecturerHelper.addLecturer(getFirstname, getLastname,Role.Student,getPhone,user.getEmail().toString(),department_spinner.getSelectedItem().toString(),"","");
+                        LecturerHelper.addLecturer(getFirstname, getLastname,Role.Lecturer,getPhone,user.getEmail().toString(),department_spinner.getSelectedItem().toString(),"","");
                         startActivity(new Intent(getApplicationContext(), LecturerMainActivity.class));
 
                     }
                     else if(rolers_spinner.getSelectedItem().toString().equals(Role.Student)){
                         StudentHelper.addStudent(getFirstname, getLastname,Role.Student,getPhone,user.getEmail().toString(),"","","");
-                        startActivity(new Intent(getApplicationContext(), StudentMainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), StudentMainActivity2.class));
                     }
                 }
                 else {

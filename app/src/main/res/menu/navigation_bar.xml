@@ -17,35 +17,35 @@
 
             <item
                 android:id="@+id/option_all"
-                android:title="all"
+                android:title="Advanced Diploma"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_general"
-                android:title="général"
+                android:title="H-Certificate"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_Dentiste"
-                android:title="Dentiste"
+                android:title="National Diploma"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_ORL"
-                android:title="ORL"
+                android:title="IT"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_Ophtalmologue"
-                android:title="Ophtalmologue"
+                android:title="Markerting"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_Pédiatre"
-                android:title="Pédiatre"
+                android:title="HR"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_Radiologue"
-                android:title="Radiologue"
+                android:title="Engineering"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_Rhumatologue"
-                android:title="Rhumatologue"
+                android:title="Accounting"
                 app:showAsAction="ifRoom" />
 
         </menu>

@@ -13,13 +13,13 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="273dp"
-            android:background="@drawable/blue_bg">
+            android:background="@drawable/profile_bk">
             <ImageView
                 android:layout_width="77dp"
                 android:layout_height="77dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="93dp"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo_ss" />
         </FrameLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -153,7 +153,7 @@
             android:layout_marginLeft="62dp"
             android:layout_marginTop="18.7dp"
             android:layout_marginRight="62dp"
-            android:background="@drawable/blue_fill__rounded_color"
+            android:background="@drawable/circle_orange"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:paddingTop="14dp"

@@ -77,7 +77,7 @@ public class BookingStep3Fragment extends Fragment {
                     @Override
                     public void onSuccess(Void aVoid) {
                         getActivity().finish();
-                        Toast.makeText(getContext(),"Success!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"Successful booked!",Toast.LENGTH_SHORT).show();
                         Common.currentTimeSlot = -1;
                         Common.currentDate = Calendar.getInstance();
                         Common.step = 0;

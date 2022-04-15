@@ -88,18 +88,20 @@ public class StudentProfile extends AppCompatActivity {
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                if(documentSnapshot.exists()){
-                    firstname.setText(documentSnapshot.getString("Firstname"));
-                    lastname.setText(documentSnapshot.getString("Lastname"));
-                    phone.setText(documentSnapshot.getString("Phone"));
-                    email.setText(user.getEmail());
-                    email2.setText(user.getEmail());
-                    course.setText(documentSnapshot.getString("Course"));
-                    p_course.setText(documentSnapshot.getString("Course"));
-                    role.setText(documentSnapshot.getString("Role"));
-                    fullnames.setText(documentSnapshot.getString("Firstname")+" "+documentSnapshot.getString("Lastname"));
-                }else {
-                    Log.d("tag", "onEvent: Document do not exists");
+                if(e == null){
+                    if(documentSnapshot.exists()){
+                        firstname.setText(documentSnapshot.getString("Firstname"));
+                        lastname.setText(documentSnapshot.getString("Lastname"));
+                        phone.setText(documentSnapshot.getString("Phone"));
+                        email.setText(user.getEmail());
+                        email2.setText(user.getEmail());
+                        course.setText(documentSnapshot.getString("Course"));
+                        p_course.setText(documentSnapshot.getString("Course"));
+                        role.setText(documentSnapshot.getString("Role"));
+                        fullnames.setText(documentSnapshot.getString("Firstname")+" "+documentSnapshot.getString("Lastname"));
+                    }else {
+                        Log.d("tag", "onEvent: Document do not exists");
+                    }
                 }
             }
         });
@@ -140,12 +142,18 @@ public class StudentProfile extends AppCompatActivity {
                     docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+                            DocumentReference docRef = fStore.collection("Student").document(user.getEmail());
+                            Map<String,Object> edited = new HashMap<>();
+                            edited.put("firstname",firstname.getText().toString());
+                            edited.put("lastname",lastname.getText().toString());
+                            edited.put("phoneNumber",phone.getText().toString());
+                            docRef.update(edited);
                             Toast.makeText(StudentProfile.this, "Profile Updated", Toast.LENGTH_SHORT).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(Exception e) {
-                            Toast.makeText(StudentProfile.this, "Error profile not updated", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(StudentProfile.this, "Error profile not updated", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }

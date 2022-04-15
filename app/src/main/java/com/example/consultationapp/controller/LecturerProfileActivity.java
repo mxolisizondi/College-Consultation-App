@@ -88,19 +88,21 @@ public class LecturerProfileActivity extends AppCompatActivity {
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                if(documentSnapshot.exists()){
-                    firstname.setText(documentSnapshot.getString("Firstname"));
-                    lastname.setText(documentSnapshot.getString("Lastname"));
-                    phone.setText(documentSnapshot.getString("Phone"));
-                    email.setText(user.getEmail());
-                    email2.setText(user.getEmail());
-                    course.setText(documentSnapshot.getString("Course"));
-                    p_course.setText(documentSnapshot.getString("Course"));
-                    module.setText(documentSnapshot.getString("Module"));
-                    role.setText(documentSnapshot.getString("Role"));
-                    fullnames.setText(documentSnapshot.getString("Firstname")+" "+documentSnapshot.getString("Lastname"));
-                }else {
-                    Log.d("tag", "onEvent: Document do not exists");
+                if(e == null){
+                    if(documentSnapshot.exists()){
+                        firstname.setText(documentSnapshot.getString("Firstname"));
+                        lastname.setText(documentSnapshot.getString("Lastname"));
+                        phone.setText(documentSnapshot.getString("Phone"));
+                        email.setText(user.getEmail());
+                        email2.setText(user.getEmail());
+                        course.setText(documentSnapshot.getString("Course"));
+                        p_course.setText(documentSnapshot.getString("Course"));
+                        module.setText(documentSnapshot.getString("Module"));
+                        role.setText(documentSnapshot.getString("Role"));
+                        fullnames.setText(documentSnapshot.getString("Firstname")+" "+documentSnapshot.getString("Lastname"));
+                    }else {
+                        Log.d("tag", "onEvent: Document do not exists");
+                    }
                 }
             }
         });
@@ -139,6 +141,24 @@ public class LecturerProfileActivity extends AppCompatActivity {
                     edited.put("Lastname",lastname.getText().toString());
                     edited.put("Phone",phone.getText().toString());
                     edited.put("Module",module.getText().toString());
+                    docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //Toast.makeText(LecturerProfileActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(Exception e) {
+                            //Toast.makeText(LecturerProfileActivity.this, "Error profile not updated", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    docRef = fStore.collection("Lecturer").document(user.getEmail());
+                    edited = new HashMap<>();
+                    edited.put("firstname",firstname.getText().toString());
+                    edited.put("lastname",lastname.getText().toString());
+                    edited.put("phoneNumber",phone.getText().toString());
+                    edited.put("module",module.getText().toString());
                     docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

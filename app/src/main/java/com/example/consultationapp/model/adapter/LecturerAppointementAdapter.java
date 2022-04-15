@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -54,6 +55,7 @@ public class LecturerAppointementAdapter extends FirestoreRecyclerAdapter<Apoint
                 FirebaseFirestore.getInstance().collection("Student").document(apointementInformation.getStudentId()).collection("calendar")
                         .document(apointementInformation.getTime().replace("/","_")).set(apointementInformation);
                 FirebaseFirestore.getInstance().document(apointementInformation.getChemin()).update("type","Accepted");
+                Toast.makeText(v.getContext(), "Appointment accepted", Toast.LENGTH_SHORT).show();
                 FirebaseFirestore.getInstance().collection("Lecturer").document(apointementInformation.getLecturerId()).collection("calendar")
                         .document(apointementInformation.getTime().replace("/","_")).set(apointementInformation);
 

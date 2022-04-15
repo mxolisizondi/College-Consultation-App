@@ -60,7 +60,6 @@ public class LecturerMainActivity extends AppCompatActivity {
             Common.currentLecturer = FirebaseAuth.getInstance().getCurrentUser().getEmail();
             Common.CurrentUserType = "Lecturer";
 
-            System.out.println("Not empty");
             storageReference = FirebaseStorage.getInstance().getReference();
 
             StorageReference profileRef = storageReference.child("users/"+user.getEmail()+"/profile.jpg");
